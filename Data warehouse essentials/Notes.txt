@@ -1,0 +1,64 @@
+The rules are: 
+
+    GCP accounts always include .gcp. in the URL. 
+    Azure accounts always include .azure. in the URL. 
+    AWS accounts sometimes include .aws. in the URL. 
+    AWS accounts sometimes don't have any cloud name listed in the URL. 
+
+
+The difference between identity and access is:
+	Identity: who you are 
+		If you can prove your identity, that's called being authenticated.
+	Access: What you are allowed to see/Do
+		If you can prove you have a right to access something, that's called being authorized.
+		
+Role Based Access control (RBAC)
+
+DAC:
+Beyond RBAC, there is another facet of Snowflake's access model called Discretionary Access Control (DAC), which means "you create it, you own it." If SYSADMIN creates a database, they own it and so they can delete it, change the name, and more.  		
+
+	Beyond RBAC, there is another facet of Snowflake's access model called Discretionary Access Control (DAC), which means "you create it, you own it." If SYSADMIN creates a database, they own it and so they can delete it, change the name, and more.  
+
+	We see DAC models when we create an MS Word Doc, an email or a Google Sheets document. We created it, so we own it. We created it, so we can delete it! We created it, so we can rename it!
+
+	Because of the combination of RBAC and DAC in Snowflake, when we create something, the ROLE we were using at the time we created it, is the role that OWNS it. 
+	
+There are 4 settings for a database:
+		1. Warehouse name (Mandatory)
+		2. User role (Mandatory)
+		3. Database name (Optional)
+		4. Schema name (Optional)
+
+Elastic warehouses are called Multi cluster warehouses in Snowflake. Multi cluster warehousing is only available for Enterprise and above additions.
+
+Warehouse Scaling In and Out: 
+
+    If multi-cluster/elastic warehousing is available (Enterprise edition or above) a warehouse is capable of scaling out in times of increased demand.  (Adding temporary teams, made up of a collection of temporary workers). 
+    If multi-cluster scaling out takes place, clusters are added for the period of demand and then clusters are removed (snap back) when demand decreases. (Removing temporary teams). 
+    The number of servers in the original cluster dictates the number of servers in each cluster during periods where the warehouse scales out by adding clusters. 
+
+
+Snowflake:
+	Pre stage data movement
+	
+	
+Snowflake supports 5 popular semi structured data formats:
+	JSON
+	XML
+	Parquet
+	AVRO
+	ORC
+	
+All of these can be ingested into Snowflake using Snowflake variant data type.	
+
+kluge: a quick fix that fixes the immediate issue, but cannont be considered a long term solution.
+
+The nesting pattern of any data set is called an object model.
+
+
+Flatten the data using 2 options available:
+	1. TABLE FLATTEN
+	2. LATERAL JOIN FLATTEN
+	
+	
+Snowflake account locators are 2-3 letters and 5-6 numbers. 	
