@@ -9,3 +9,10 @@ Mastering Snowflake by practicing through guided instruction from Snowflake univ
 Snowflake account URL components:
 ![alt text](https://learn.snowflake.com/asset-v1:snowflake+X+X+type@asset+block@whats_in_url_aws_ca-central.png)
 
+
+The real value of consuming shared data is:
+* Someone else will maintain it over time and keep it fresh
+* Someone else will pay to store it 
+* You will only pay to query it
+
+
