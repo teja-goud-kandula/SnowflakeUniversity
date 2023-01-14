@@ -17,7 +17,7 @@ The real value of consuming shared data is:
 
 
 Snowflake shared account feature comparison:
-![alt text](https://github.com/teja-goud-kandula/SnowflakeUniversity/blob/main/Sharing%2C%20Marketplace%2C%20%26%20Exchanges%20Workshop/images/DDL%20commands%20for%20shared%20database.png)
+![alt text](https://github.com/teja-goud-kandula/SnowflakeUniversity/blob/main/Sharing%2C%20Marketplace%2C%20%26%20Exchanges%20Workshop/images/Shared%20database%20sharing%20features.png)
 ![alt text](https://github.com/teja-goud-kandula/SnowflakeUniversity/blob/main/Sharing%2C%20Marketplace%2C%20%26%20Exchanges%20Workshop/images/SQL%20Commands%20comparison%20on%20shared%20database.png)
 ![alt text](https://github.com/teja-goud-kandula/SnowflakeUniversity/blob/main/Sharing%2C%20Marketplace%2C%20%26%20Exchanges%20Workshop/images/Shared%20Database%20Grant%20Access%20Privilege%20comparison.png)
-![alt text](https://github.com/teja-goud-kandula/SnowflakeUniversity/blob/main/Sharing%2C%20Marketplace%2C%20%26%20Exchanges%20Workshop/images/Shared%20database%20sharing%20features.png)
+![alt text](https://github.com/teja-goud-kandula/SnowflakeUniversity/blob/main/Sharing%2C%20Marketplace%2C%20%26%20Exchanges%20Workshop/images/DDL%20commands%20for%20shared%20database.png)
