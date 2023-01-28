@@ -246,3 +246,21 @@ on spl.product_code = sc.product_code
 where price < 200 -- high priced items like vintage sweatsuits aren't a good fit for this website
 and image_size < 1000000 -- large images need to be processed to a smaller size
 ;
+
+
+-- Geospatial data 
+
+-- creating stages to the location where there is geo spatial data
+create stage trails_geojson
+url = 's3://uni-lab-files-more/dlkw/trails/trails_geojson' ; 
+
+create stage trails_parquet
+url = 's3://uni-lab-files-more/dlkw/trails/trails_parquet' ; 
+
+
+-- creating JSON file format
+create file format FF_JSON 
+TYPE = 'JSON';
+-- Creating PARQUET file format
+create file format FF_PARQUET
+TYPE = 'PARQUET';
