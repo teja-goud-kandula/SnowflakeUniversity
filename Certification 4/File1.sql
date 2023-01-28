@@ -102,7 +102,7 @@ from @uni_klaus_zmd/swt_product_line.txt
 create view zenas_athleisure_db.products.SWEATBAND_PRODUCT_LINE as 
 select 
     replace($1,chr(13)||chr(10)) as PRODUCT_CODE, 
-    replace($2,chr(13)||chr(10)) as HEADBAND_DESCRIPTIONS, 
+    replace($2,chr(13)||chr(10)) as HEADBAND_DESCRIPTION, 
     $3 AS WRISTBAND_DESCRIPTION
 from @uni_klaus_zmd/swt_product_line.txt
 (file_format => zmd_file_format_2);
@@ -198,3 +198,51 @@ on d.relative_path = SUBSTR(s.direct_url,54,50)
 cross join sweatsuit_sizes;
 
 select * from catalog;
+
+-- 🥋 Add the Upsell Table and Populate It
+
+-- Add a table to map the sweat suits to the sweat band sets
+create table ZENAS_ATHLEISURE_DB.PRODUCTS.UPSELL_MAPPING
+(
+SWEATSUIT_COLOR_OR_STYLE varchar(25)
+,UPSELL_PRODUCT_CODE varchar(10)
+);
+
+--populate the upsell table
+insert into ZENAS_ATHLEISURE_DB.PRODUCTS.UPSELL_MAPPING
+(
+SWEATSUIT_COLOR_OR_STYLE
+,UPSELL_PRODUCT_CODE 
+)
+VALUES
+('Charcoal Grey','SWT_GRY')
+,('Forest Green','SWT_FGN')
+,('Orange','SWT_ORG')
+,('Pink', 'SWT_PNK')
+,('Red','SWT_RED')
+,('Yellow', 'SWT_YLW');
+
+-- 🥋 Zena's View for the Athleisure Web Catalog Prototype
+
+-- Zena needs a single view she can query for her website prototype
+create view catalog_for_website as 
+select color_or_style
+,price
+,direct_url
+,size_list
+,coalesce('BONUS: ' ||  headband_description || ' & ' || wristband_description, 'Consider White, Black or Grey Sweat Accessories')  as upsell_product_desc
+from
+(   select color_or_style, price, direct_url, image_last_modified,image_size
+    ,listagg(sizes_available, ' | ') within group (order by sizes_available) as size_list
+    from catalog
+    group by color_or_style, price, direct_url, image_last_modified, image_size
+) c
+left join upsell_mapping u
+on u.sweatsuit_color_or_style = c.color_or_style
+left join sweatband_coordination sc
+on sc.product_code = u.upsell_product_code
+left join sweatband_product_line spl
+on spl.product_code = sc.product_code
+where price < 200 -- high priced items like vintage sweatsuits aren't a good fit for this website
+and image_size < 1000000 -- large images need to be processed to a smaller size
+;
