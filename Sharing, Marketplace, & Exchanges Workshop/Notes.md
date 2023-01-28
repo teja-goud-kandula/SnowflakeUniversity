@@ -22,13 +22,3 @@ Snowflake shared account feature comparison:
 ![alt text](https://github.com/teja-goud-kandula/SnowflakeUniversity/blob/main/Sharing%2C%20Marketplace%2C%20%26%20Exchanges%20Workshop/images/DDL%20commands%20for%20shared%20database.png)
 ![alt text](https://github.com/teja-goud-kandula/SnowflakeUniversity/blob/main/Sharing%2C%20Marketplace%2C%20%26%20Exchanges%20Workshop/images/SQL%20Commands%20comparison%20on%20shared%20database.png)
 
-
-
-File formats come in 6 flavors - CSV, JSON, XML, PARQUET, ORC, & AVRO.
-
-To access unstructured data use directory tables.
-
-To use directory on a stage first enable directory on that stage
-
-## Data Lakehouse
-When some data is loaded and some is left in a non-loaded state the two types can be joined and queried together, this is sometimes referred to as a ** Data Lakehouse **. 
